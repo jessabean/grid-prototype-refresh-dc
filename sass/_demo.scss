@@ -1,0 +1,54 @@
+// Set up page wrapper
+.wrapper {
+  max-width: 20em;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+  @include min-width($breakpoint-md) {
+    max-width: 38em;
+  }
+
+  @include min-width($breakpoint-lg) {
+    max-width: 55em;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: San Francisco, Helvetica Neue, Arial, sans-serif;
+}
+
+.page-header {
+  background: #E94E77;
+  color: white;
+  padding: 2em;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.page-footer {
+  grid-row: 3;
+  padding: 1em;
+  background: #C6E5D9;
+  color: #382F2D;
+  text-align: center;
+
+  a {
+    color: #5D445D;
+  }
+}

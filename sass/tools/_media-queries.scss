@@ -1,0 +1,7 @@
+// Mixin for media queries
+// -------------------------
+@mixin min-width($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}

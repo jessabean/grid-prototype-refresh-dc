@@ -1,0 +1,33 @@
+{
+  "name": "grid-prototype-refresh-dc",
+  "version": "0.0.1",
+  "description": "Prototyping with CSS Grid for Refresh DC Sept 2017",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessabean/grid-prototype-refresh-dc.git"
+  },
+  "keywords": [
+    "gulp",
+    "sass",
+    "mocha",
+    "javascript",
+    "html5"
+  ],
+  "author": "jessabean",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jessabean/grid-prototype-refresh-dc/issues"
+  },
+  "homepage": "https://github.com/jessabean/grid-prototype-refresh-dc#readme",
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "express": "^4.15.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^3.1.0"
+  }
+}
