@@ -1,0 +1,49 @@
+// Grid config: container, columns, gutter
+// -------------------------
+$grid-config: (
+  sm: (
+    container: $container-sm,
+    column-count: $grid-columns-sm,
+    gutter: $gutter-sm
+  ),
+  md: (
+    container: $container-md,
+    column-count: $grid-columns-md,
+    gutter: $gutter-sm
+  ),
+  lg: (
+    container: $container-lg,
+    column-count: $grid-columns-lg,
+    gutter: $gutter-lg
+  )
+);
+
+
+// Functions for our flexbox/nested grid to adhere to outer grid
+// -------------------------
+
+// Calculate individual column width (aka 1fr) at a given breakpoint
+@function calc-column-width($container, $column-count, $gutter) {
+  $total-gutters: ($column-count - 1) * $gutter;
+  $column-width: ($container - $total-gutters) / $column-count;
+
+  @return $column-width;
+}
+
+// Calculate a fixed width that spans columns defined by CSS Grid
+@function span-columns($breakpoint, $column-span) {
+
+  // Get the $grid-config settings for the specified breakpoint
+  $settings: map-get($grid-config, $breakpoint);
+
+  // Get the individual properties nested in the breakpoint
+  $container: map-get($settings, container);
+  $column-count: map-get($settings, column-count);
+  $gutter:  map-get($settings, gutter);
+
+  // Calculate individual column size based on config settings
+  $column-width: calc-column-width($container, $column-count, $gutter);
+
+  @return ($column-width * $column-span) + ($gutter * ($column-span - 1));
+
+}
