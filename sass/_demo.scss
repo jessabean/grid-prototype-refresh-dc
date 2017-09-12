@@ -70,6 +70,27 @@
   grid-column: 1 / span 6;
 }
 
+// Flexbox styles for media objects
+.media {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.media-content {
+  flex: 1;
+  background: #5D445D;
+  color: white;
+}
+
+.quote {
+  background: #C6E5D9;
+}
+
+.quote-text {
+  padding: 1em;
+}
+
 // Medium-screens: tablet-ish
 @include min-width($breakpoint-md) {
   .grid-1 {
@@ -135,11 +156,7 @@
   }
 }
 
-.quote {
-  background: #C6E5D9;
-}
-
-// Decorative styles
+// Page styles
 // -------------------------
 * {
   box-sizing: border-box;
@@ -156,6 +173,17 @@ body {
   padding: 0;
   margin: 0;
   font-family: San Francisco, Helvetica Neue, Arial, sans-serif;
+}
+
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 .page-header {
