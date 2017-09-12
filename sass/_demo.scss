@@ -97,6 +97,10 @@
     margin-bottom: 3em;
   }
 
+  .grid-2 {
+    grid-auto-flow: row dense;
+  }
+
   .heading {
     grid-column: 1 / span 9;
     grid-row: 1;
