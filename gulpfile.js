@@ -2,6 +2,10 @@ var gulp        = require('gulp');
 var browserSync = require('browser-sync');
 var prefix      = require('gulp-autoprefixer');
 var sass        = require('gulp-sass');
+var prefixOptions = {
+  browsers: ['last 2 versions', 'ie >= 11', 'ios >= 7', 'android >= 4.4.2'],
+  grid: false
+};
 
 gulp.task('browser-sync', ['sass'], function() {
     browserSync({
@@ -19,7 +23,7 @@ gulp.task('sass', function () {
             includePaths: ['sass'],
             onError: browserSync.notify
         }))
-        .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+        .pipe(prefix(prefixOptions))
         .pipe(browserSync.reload({stream:true}))
         .pipe(gulp.dest('public'));
 });
