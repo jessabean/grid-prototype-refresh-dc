@@ -1,0 +1,14 @@
+@mixin debug($container, $columns, $gutter-width) {
+  // Calculating width of one column:
+  // 1. Subtract gutters (columns - 1) from container
+  // 2. Divide by number of columns
+  $column-width: ($container - (($columns - 1) * $gutter-width)) / $columns;
+
+  // Apply a background image that reflects our grid rules
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(pink, 0.5),
+    rgba(pink, 0.5) $column-width,
+    transparent $column-width,
+    transparent $column-width + $gutter-width);
+}

@@ -24,9 +24,14 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('public'));
 });
 
+gulp.task('js', function () {
+    return gulp.src('js/client.js')
+        .pipe(gulp.dest('public/client.js'));
+});
 
 gulp.task('watch', function () {
     gulp.watch('sass/**/*.scss', ['sass']);
+    gulp.watch('js/**/*.js', ['js', 'browser-reload']);
     gulp.watch('**/*.html', ['browser-reload']);
 });
 

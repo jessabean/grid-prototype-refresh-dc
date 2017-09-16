@@ -1,4 +1,5 @@
 // Set up page wrapper
+// -------------------------
 .wrapper {
   max-width: 20em;
   margin-left: auto;
@@ -14,6 +15,63 @@
   }
 }
 
+// Uncomment to view grid debugger
+.wrapper-debug {
+  display: none;
+
+  &.is-active {
+    @include debug($container-sm, $grid-columns-sm, $gutter-sm);
+
+    @media screen and (min-width: $breakpoint-md) {
+      @include debug($container-md, $grid-columns-md, $gutter-sm);
+    }
+
+    @media screen and (min-width: $breakpoint-lg) {
+      @include debug($container-lg, $grid-columns-lg, $gutter-lg);
+    }
+
+    // Some additional styles to display our debugging container on top
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+  }
+}
+
+.button-toggle {
+  font-size: 0.8em;
+  display: block;
+  margin: 0 auto;
+}
+
+// Grid styles
+// -------------------------
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat($grid-columns-sm, 1fr);
+  grid-gap: $gutter-sm;
+  margin-bottom: $gutter-sm;
+
+  @include min-width($breakpoint-md) {
+    grid-template-columns: repeat($grid-columns-md, 1fr);
+  }
+
+  @include min-width($breakpoint-lg) {
+    grid-template-columns: repeat($grid-columns-lg, 1fr);
+    grid-gap: $gutter-lg;
+    margin-bottom: $gutter-lg;
+  }
+}
+
+.quote {
+  background: #C6E5D9;
+}
+
+// Decorative styles
+// -------------------------
 * {
   box-sizing: border-box;
 }
