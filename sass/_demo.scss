@@ -15,30 +15,6 @@
   }
 }
 
-// Grid styles
-// -------------------------
-.grid {
-  display: grid;
-  grid-template-columns: repeat($grid-columns-sm, 1fr);
-  grid-gap: $gutter-sm;
-  margin-bottom: $gutter-sm;
-
-  @include min-width($breakpoint-md) {
-    grid-template-columns: repeat($grid-columns-md, 1fr);
-  }
-
-  @include min-width($breakpoint-lg) {
-    grid-template-columns: repeat($grid-columns-lg, 1fr);
-    grid-gap: $gutter-lg;
-    margin-bottom: $gutter-lg;
-  }
-}
-
-// Grid items default to single column on small screens
-.grid > * {
-  grid-column: 1 / span 6;
-}
-
 // Flexbox styles for media objects
 .media {
   display: flex;
@@ -54,106 +30,135 @@
   color: white;
 }
 
-// Medium-screens: tablet-ish
-@include min-width($breakpoint-md) {
-  .grid-1 {
-    margin-bottom: 3em;
+
+// Grid Layout styles
+// -------------------------
+
+@supports (display: grid) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat($grid-columns-sm, 1fr);
+    grid-gap: $gutter-sm;
+    margin-bottom: $gutter-sm;
+
+    @include min-width($breakpoint-md) {
+      grid-template-columns: repeat($grid-columns-md, 1fr);
+    }
+
+    @include min-width($breakpoint-lg) {
+      grid-template-columns: repeat($grid-columns-lg, 1fr);
+      grid-gap: $gutter-lg;
+      margin-bottom: $gutter-lg;
+    }
   }
 
-  .grid-2 {
-    grid-auto-flow: row dense;
-  }
-
-  .heading {
-    grid-column: 1 / span 9;
-    grid-row: 1;
-  }
-
-  .quote-1 {
-    grid-column: 1 / span 12;
-  }
-
-  .quote-2 {
-    grid-column: 1 / span 4;
-  }
-
-  .quote-3 {
-    grid-column: 5 / span 4;
-  }
-
-  .quote-4 {
-    grid-column: 9 / span 4;
-  }
-
-  .quote-5 {
+  // Grid items default to single column on small screens
+  .grid > * {
     grid-column: 1 / span 6;
   }
 
-  .quote-6 {
-    grid-column: 7 / span 3;
+  // Medium-screens: tablet-ish
+  @include min-width($breakpoint-md) {
+    .grid-1 {
+      margin-bottom: 3em;
+    }
+
+    .grid-2 {
+      grid-auto-flow: row dense;
+    }
+
+    .heading {
+      grid-column: 1 / span 9;
+      grid-row: 1;
+    }
+
+    .quote-1 {
+      grid-column: 1 / span 12;
+    }
+
+    .quote-2 {
+      grid-column: 1 / span 4;
+    }
+
+    .quote-3 {
+      grid-column: 5 / span 4;
+    }
+
+    .quote-4 {
+      grid-column: 9 / span 4;
+    }
+
+    .quote-5 {
+      grid-column: 1 / span 6;
+    }
+
+    .quote-6 {
+      grid-column: 7 / span 3;
+    }
+
+    .quote-7 {
+      grid-column: 10 / span 3;
+    }
+
+    .see-more {
+      grid-column: 10 / span 3;
+      grid-row: 1;
+    }
   }
 
-  .quote-7 {
-    grid-column: 10 / span 3;
-  }
+  // Large screens
+  @include min-width($breakpoint-lg) {
+    .grid-1 {
+      grid-template-rows: auto repeat(3, 1fr);
+    }
 
-  .see-more {
-    grid-column: 10 / span 3;
-    grid-row: 1;
+    .heading {
+      grid-column: 1 / span 12;
+    }
+
+    .quote-1 {
+      grid-column: 1 / span 12;
+      grid-row: 2 / span 3;
+    }
+
+    .quote-2 {
+      grid-column: 13 / span 3;
+    }
+
+    .quote-3 {
+      grid-column: 13 / span 3;
+    }
+
+    .quote-4 {
+      grid-column: 13 / span 3;
+    }
+
+    .quote-5 {
+      grid-column: 9 / span 7;
+    }
+
+    .quote-6 {
+      grid-column: 1 / span 4;
+    }
+
+    .quote-7 {
+      grid-column: 5 / span 4;
+    }
+
+    .see-more {
+      grid-column: 13 / span 3;
+    }
+
+    .media-2 {
+      flex-direction: row;
+    }
+
+    .media-2 .media-image {
+      flex-basis: span-columns(lg, 4);
+    }
   }
 }
 
-// Large screens
-@include min-width($breakpoint-lg) {
-  .grid-1 {
-    grid-template-rows: auto repeat(3, 1fr);
-  }
-
-  .heading {
-    grid-column: 1 / span 12;
-  }
-
-  .quote-1 {
-    grid-column: 1 / span 12;
-    grid-row: 2 / span 3;
-  }
-
-  .quote-2 {
-    grid-column: 13 / span 3;
-  }
-
-  .quote-3 {
-    grid-column: 13 / span 3;
-  }
-
-  .quote-4 {
-    grid-column: 13 / span 3;
-  }
-
-  .quote-5 {
-    grid-column: 9 / span 7;
-  }
-
-  .quote-6 {
-    grid-column: 1 / span 4;
-  }
-
-  .quote-7 {
-    grid-column: 5 / span 4;
-  }
-
-  .see-more {
-    grid-column: 13 / span 3;
-  }
-
-  .media-2 {
-    flex-direction: row;
-  }
-
-  .media-2 .media-image {
-    flex-basis: span-columns(lg, 4);
-  }
-}
 
 // Page styles
 // -------------------------
