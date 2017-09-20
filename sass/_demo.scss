@@ -135,7 +135,7 @@
     display: grid;
     grid-template-columns: repeat($grid-columns-sm, 1fr);
     grid-gap: $gutter-sm;
-    margin-bottom: $gutter-sm;
+    margin: 0 0 $gutter-sm 0;
 
     @include min-width($breakpoint-md) {
       grid-template-columns: repeat($grid-columns-md, 1fr);
@@ -151,6 +151,8 @@
   // Grid items default to single column on small screens
   .grid > * {
     grid-column: 1 / span 6;
+    margin: 0;
+    width: auto;
   }
 
   // Medium-screens: tablet-ish
