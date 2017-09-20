@@ -30,6 +30,102 @@
   color: white;
 }
 
+// Flexbox fallback styles
+// -------------------------
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: $gutter-sm;
+  margin-left: -($gutter-sm / 2);
+  margin-right: -($gutter-sm / 2);
+}
+
+.grid > * {
+  flex: 1 1 auto;
+  margin: $gutter-sm / 2;
+}
+
+@include min-width($breakpoint-md) {
+  .grid {
+    flex-direction: row;
+  }
+
+  .grid-1 {
+    margin-bottom: 3em;
+  }
+
+  .heading {
+    width: 100%;
+  }
+  .quote-1 {
+    width: 100%;
+  }
+  .quote-2 {
+    width: span-columns(md, 4);
+  }
+  .quote-3 {
+    width: span-columns(md, 4);
+  }
+  .quote-4 {
+    width: span-columns(md, 4);
+  }
+  .quote-5 {
+    width: span-columns(md, 6);
+  }
+  .quote-6 {
+    width: span-columns(md, 3);
+  }
+  .quote-7 {
+    width: span-columns(md, 3);
+  }
+  .see-more {
+    width: 100%;
+  }
+}
+
+@include min-width($breakpoint-lg) {
+  .quote-1 {
+    width: span-columns(lg, 12);
+  }
+
+  .quote-2 {
+    width: span-columns(lg, 3);
+  }
+  .quote-3 {
+    width: span-columns(lg, 3);
+  }
+
+  .quote-4 {
+    width: span-columns(lg, 3);
+  }
+
+  .quote-5 {
+    width: span-columns(lg, 7);
+    order: 1;
+  }
+
+  .quote-6 {
+    width: span-columns(lg, 4);
+  }
+
+  .quote-7 {
+    width: span-columns(lg, 4);
+  }
+
+  .grid-2 .see-more {
+    order: 2;
+  }
+
+  .media-2 {
+    flex-direction: row;
+  }
+
+  .media-2 .media-image {
+    flex-basis: span-columns(lg, 4);
+  }
+}
 
 // Grid Layout styles
 // -------------------------
@@ -59,10 +155,6 @@
 
   // Medium-screens: tablet-ish
   @include min-width($breakpoint-md) {
-    .grid-1 {
-      margin-bottom: 3em;
-    }
-
     .grid-2 {
       grid-auto-flow: row dense;
     }
@@ -147,14 +239,6 @@
 
     .see-more {
       grid-column: 13 / span 3;
-    }
-
-    .media-2 {
-      flex-direction: row;
-    }
-
-    .media-2 .media-image {
-      flex-basis: span-columns(lg, 4);
     }
   }
 }
