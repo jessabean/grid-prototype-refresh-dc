@@ -15,37 +15,6 @@
   }
 }
 
-// Uncomment to view grid debugger
-.wrapper-debug {
-  display: none;
-
-  &.is-active {
-    @include debug($container-sm, $grid-columns-sm, $gutter-sm);
-
-    @media screen and (min-width: $breakpoint-md) {
-      @include debug($container-md, $grid-columns-md, $gutter-sm);
-    }
-
-    @media screen and (min-width: $breakpoint-lg) {
-      @include debug($container-lg, $grid-columns-lg, $gutter-lg);
-    }
-
-    // Some additional styles to display our debugging container on top
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: 10;
-  }
-}
-
-.button-toggle {
-  font-size: 0.8em;
-  display: block;
-  margin: 0 auto;
-}
-
 // Grid styles
 // -------------------------
 .grid {
@@ -278,4 +247,35 @@ img {
   a {
     color: #5D445D;
   }
+}
+
+// Grid debugger bg image
+.wrapper-debug {
+  display: none;
+
+  &.is-active {
+    @include debug($container-sm, $grid-columns-sm, $gutter-sm);
+
+    @media screen and (min-width: $breakpoint-md) {
+      @include debug($container-md, $grid-columns-md, $gutter-sm);
+    }
+
+    @media screen and (min-width: $breakpoint-lg) {
+      @include debug($container-lg, $grid-columns-lg, $gutter-lg);
+    }
+
+    // Some additional styles to display our debugging container on top
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+  }
+}
+
+.button-toggle {
+  font-size: 0.8em;
+  display: block;
+  margin: 0 auto;
 }
