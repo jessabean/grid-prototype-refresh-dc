@@ -87,18 +87,19 @@
 
 @include min-width($breakpoint-lg) {
   .quote-1 {
-    width: span-columns(lg, 12);
+    width: 100%;
   }
 
   .quote-2 {
-    width: span-columns(lg, 3);
+    width: span-columns(lg, 4);
   }
+
   .quote-3 {
-    width: span-columns(lg, 3);
+    width: span-columns(lg, 4);
   }
 
   .quote-4 {
-    width: span-columns(lg, 3);
+    width: span-columns(lg, 4);
   }
 
   .quote-5 {
